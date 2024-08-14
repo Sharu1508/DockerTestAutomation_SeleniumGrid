@@ -24,38 +24,26 @@ public class SeleniumTests {
 
     public void setup(@Optional("chrome") String browser) throws MalformedURLException, InterruptedException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-         options= new ChromeOptions();
-         options.addArguments("--remote-allow-origins=*");
-         System.setProperty("webdriver.http.factory","jdk-http-client");
 
-         //check if parameter is passed from TestNG is firefox
+        //check if parameter is passed from TestNG is firefox
         if (browser.equalsIgnoreCase("firefox")) {
             capabilities.setBrowserName("firefox");
-            options.addArguments("--remote-allow-origins=*");
+
         }
         //check if parameter is passed from TestNG is chrome
-        else if (browser.equalsIgnoreCase("chrome")) {
+        if (browser.equalsIgnoreCase("chrome")) {
             capabilities.setBrowserName("chrome");
-            options=new ChromeOptions();
-            options.addArguments("--remote-allow-origins=*");
-
-
         }
 
-        else if (browser.equalsIgnoreCase("edge")) {
+        if (browser.equalsIgnoreCase("Edge")) {
             capabilities.setBrowserName("MicrosoftEdge");
-            options1=new EdgeOptions();
-            options1.addArguments("--remote-allow-origins=*");
-        }
+         }
 
-        else{
+
             driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
             Thread.sleep(2000);
             driver.get("https://anupdamoda.github.io/AceOnlineShoePortal/ShoeTypes.html");
             Thread.sleep(2000);
-        }
-
-
     }
 
     @Test
@@ -69,8 +57,7 @@ public class SeleniumTests {
 
         driver.findElement(By.xpath("//*[@id=\"second_form\"]/input")).click();
         String shoeCategory = driver.findElement(By.xpath("//*[@id=\"ShoeType\"]")).getText();
-        assertEquals(shoeCategory, "FormalShoes");
-
+        assertEquals(shoeCategory, "Formal Shoes");
 
     }
 

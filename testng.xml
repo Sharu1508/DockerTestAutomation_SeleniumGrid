@@ -7,7 +7,6 @@
             <class name="parallelTest.SeleniumTests"/>
         </classes>
     </test>
-
     <test name="FireFoxTest">
         <parameter name="browserType" value="firefox"/>
         <classes>
