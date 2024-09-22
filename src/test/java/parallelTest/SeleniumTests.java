@@ -51,6 +51,7 @@ public class SeleniumTests {
 
         driver.get("https://anupdamoda.github.io/AceOnlineShoePortal/index.html");
         driver.findElement(By.xpath("//*[@id=\"menuToggle\"]/input")).click();
+
         driver.findElement(By.xpath("//*[@id=\"menu\"]/a[2]/li")).click();
         driver.findElement(By.xpath("//*[@id=\"usr\"]")).sendKeys("Sha");
         driver.findElement(By.xpath("//*[@id=\"pwd\"]")).sendKeys("Sha");
